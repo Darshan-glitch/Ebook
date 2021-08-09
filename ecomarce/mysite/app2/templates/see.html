@@ -1,0 +1,23 @@
+{% extends 'app2.html' %}
+{% block style %}
+<style>
+</style>
+
+{% endblock style %}
+{% block body %}
+    {% for book in books  %}
+    <p class="text-center width-23px"><b>{{book.book_name}}</b></p>
+    <div class="container border">
+        <div class="row">
+          <div class="col">
+            <img style="width: 200px; height:300px;" src="{{book.image.url}}">
+          </div>
+          <div class="col mt-5">
+            <p>{{book.description}}</p>
+            <p><b>Price:</b>{{book.price}}-/Rs</p>
+            <a href="/payment/{{book.id}}"><button class="btn btn-info col-lg-12" type="submit">Buy Now</button></a>
+          </div>
+        </div>
+    </div>
+        {% endfor %}
+    {% endblock body %}

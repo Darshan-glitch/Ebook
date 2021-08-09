@@ -1,0 +1,56 @@
+{% extends 'app2.html' %}
+{% block style %}
+<style>
+#image{
+	margin-right:10%;
+}
+#imag{
+	margin-right:5%;
+}
+</style>
+{% endblock style %}
+{% block body %}
+<div class="container">
+  <div class="row">
+    <div class="col mt-auto mb-auto">
+    <h4 class="  text-primary fs-1   width:56px fw-bold "> Welcome! BookSmart is available on mobile phones and tablets.</h4>
+    <p class="text-dark">Read for free! Scan the code below using the camera on your phone/tablet or get it on the Google Play Store</p>
+    {% load static %}
+      <img id="image"  src="{% static 'qr.png' %}" alt="home" style="width:25%;text-align:right;d-flex" />
+      <img  src="{% static 'google.png' %}" alt="home" style="width:25%;text-align:right;d-flex " />
+
+   
+    </div>
+    <div class="col">
+        {% load static %}
+
+          <img  src="{% static 'backbg.png' %}" alt="home" style="width:100%;text-align:right" />
+
+    </div>
+
+ </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col">
+         {% load static %}
+          <img id="imag" src="{% static 'ins (1).png ' %}" alt="home" style="width:10%;text-align:right" />
+          <img id="imag" src="{% static 'ins (2).png' %}" alt="home" style="width:10%;text-align:right" />
+          <img id="imag" src="{% static 'ins (3).png' %}" alt="home" style="width:10%;text-align:right" />
+          <img id="imag" src="{% static 'ins (4).png' %}" alt="home" style="width:10%;text-align:right" />
+    </div>
+    <div class="col">
+    <form>
+      <div class="form-group d-flex">
+          <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="your Email">
+          <a href="/register" class="btn btn-secondary">clickme</a>
+        
+      </div>
+    </form>
+       
+  </div>
+</div>
+<br>
+<br>
+<footer class="text-center mb-3">Copyright © 2021 Worldreader | Worldreader is a U.S. 501(c)(3) non-profit organization | EIN 27-2092468 | Privacy Notice | Cookie Policy</footer>
+{% endblock body %}

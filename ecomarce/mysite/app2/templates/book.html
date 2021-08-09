@@ -1,0 +1,54 @@
+{% extends 'app2.html' %}
+{% block style %}
+<style>
+    a{
+      text-decoration: none;
+    }
+    .parent{
+      display: flex;
+
+    }
+    img{
+      width: 300px;
+      height: 300px;
+    }
+</style>
+{% endblock style %}
+{% block body %}
+  
+    <div class="row">
+      <div class="col-3 border">
+         
+          <ul class="list-group">
+            <a href="/book"><li  class="list-group-item">All</li></a>
+            {% for category in category %}
+              <a href="?category={{category.id}}"><li class="list-group-item">{{category.name}}</li></a>
+            {% endfor %}  
+          </ul>
+      </div>
+      <div class="col-9 ">
+        
+          <div class="row mx-auto my-auto">
+            <div class="col">
+             <div class="row my-3">
+              {% for book in book %}
+                <div class=" mb-2 col-lg-4 col-md-4 col-sm-6 border">
+              
+                    <img src="{{book.image.url}}" alt="image">
+                    <p>{{book.name}}</p>
+                    <p>{{book.description}}</p>
+                    <p class="text-center"><b>Price:</b>{{book.price}}-/Rs</p>
+                    <div class="mb-2">
+                      <a  href="/see/{{book.id}}"><button class="btn btn-success col-lg-12" type="submit">See More</button></a>
+                    </div>
+                </div>
+              {% endfor %}    
+             </div>
+            </div>
+          </div>
+     
+      </div>
+  </div>
+  
+{% endblock body %}
+

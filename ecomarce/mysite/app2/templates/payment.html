@@ -1,0 +1,32 @@
+{% extends 'app2.html' %}
+{% block style %}
+<style>
+</style>
+{% endblock style %}
+{% block script %}
+     <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <script>
+        window.onload = function(){
+            var options = {
+                "key": "rzp_test_CYaXIJ7TIInUip",
+                "amount": "{{book.price}}",
+                "currency":"INR",
+                "name":"Darshan Saini",
+                "description":"Place your order",
+                "callback_url": 'http://localhost:8000/payment/verify',
+                "image":"https://d2t1xqejof9utc.cloudfront.net/screenshots/pics/53b9279ad1d7fb812a43c92ce64e0455/large.jpg",
+                "order_id":"{{order.id}}",
+                "prefill": {
+                    "name": "{{request.user}}",
+                    "email": "{{request.user.email}}"
+                },
+            }
+            var rzp1 = new Razorpay(options);
+            rzp1.open();
+        }
+    </script>
+{% endblock script %}
+{% block body %}
+{{books}}
+{{order}}
+{% endblock body %}

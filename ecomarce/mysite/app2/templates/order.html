@@ -1,0 +1,26 @@
+{% extends 'app2.html' %}
+{% block style %}
+<style>
+</style>
+{% endblock style %}
+{% block body %}
+    
+    {% for order in orders %}
+    <div class="container">
+        <div class="row border">
+            <div class="col">
+                <img style="width: 200px; height:300px;" src="{{book.image.url}}">
+            </div>
+            <div class="col">
+                <p class="h3"><b>{{order.book.book_name}}</b></p>
+                <br>
+                <p>{{book.author}}</p>
+                <p><b>Price:</b>{{order.book.price}}-/Rs</p>
+                <p>order item by {{request.user}} </p>
+                <p>will br reach in 10 days</p>
+            </div>
+        </div>
+    </div>
+      
+    {% endfor %}
+{% endblock body %}

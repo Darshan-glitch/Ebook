@@ -1,0 +1,94 @@
+{% extends 'app2.html' %}
+{% load static %}
+{% block style %}
+  <style>
+	#image{
+	margin-right:10%;
+}
+	#imag{
+	margin-right:5%;
+	}
+    .imag{
+		  width:1000px;
+		  height:460px;
+		
+	  }
+	  .para{
+		  display:block;
+		  margin-left:auto;
+		  margin-right:auto;
+		  width:600px;	
+		  font-size:20px;
+		  font-family: 'Montserrat',sans-serif;
+	  }
+	  .parent{
+		  display:flex;
+		  justify-content:space-between;	
+	  }
+	  .text{
+		  margin-top:7%;
+		  margin-left:7%;
+		  font-size:30px;
+		  color:lightblack;
+		  font-weight:bold;
+		  font-family: 'Montserrat',sans-serif;
+	  }	
+  </style>
+{% endblock style %}
+{% block body %}
+
+  <div class="parent">
+	<div class="text mt-5">
+		Readers build <br> a better world. 
+	</div>
+	<div class="image">
+		<img class="imag" src="{% static 'ras 1.png' %}">
+	</div>
+  </div>
+  <br>
+  <br>
+  <h1 class="text-center text-primary fa-h1 "> our mission</h1>
+  <p class="text-dark para h4 text-center">Worldreader works globally with partners to support vulnerable and underserved communities with digital reading solutions that help improve learning outcomes, workforce readiness, and gender equity.</p>
+  <br>
+  <br>
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        {% for video in video %}
+          <video width="520" height="240" controls>
+            <source src="{{video.video.url}}" type="video/mp4">
+          </video >
+        {% endfor %}
+      </div>
+      <div class="col">
+        <h1 class="text-center text-primary fa-h1" >We believe reading is transformative</h1>
+        <p class="text-center text-dark h5">How does reading change our lives? It develops our minds and helps us make sense of ourselves and the world around us. People who read improve their earning potential, achieve better educational success, and lead healthier, happier lives.</p>
+      </div>
+    </div>
+  </div>
+  <br>
+  <br>
+  <div class="container">
+  <div class="row">
+    <div class="col">
+         {% load static %}
+          <img id="imag" src="{% static 'ins (1).png ' %}" alt="home" style="width:10%;text-align:right" />
+          <img id="imag" src="{% static 'ins (2).png' %}" alt="home" style="width:10%;text-align:right" />
+          <img id="imag" src="{% static 'ins (3).png' %}" alt="home" style="width:10%;text-align:right" />
+          <img id="imag" src="{% static 'ins (4).png' %}" alt="home" style="width:10%;text-align:right" />
+    </div>
+    <div class="col">
+    <form>
+      <div class="form-group d-flex">
+          <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="your Email">
+          <a href="/register" class="btn btn-secondary">clickme</a>
+        
+      </div>
+    </form>
+       
+  </div>
+</div>
+<br>
+<br>
+<footer class="text-center mb-3">Copyright © 2021 Worldreader | Worldreader is a U.S. 501(c)(3) non-profit organization | EIN 27-2092468 | Privacy Notice | Cookie Policy</footer>
+{% endblock body %}
